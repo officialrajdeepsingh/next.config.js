@@ -1,11 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import {demoData} from '../demoData';
+import Link from 'next/link';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  let elemnt = []
+  for (let index = 0; index < 10000; index++) {
+    elemnt.push(<h1> {index * 1000} </h1>)
+  }
   return (
     <>
       <Head>
@@ -14,109 +17,43 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+      <main>
+        {
+          demoData.map(
+            item => <div key={item.id}> 
+              <h3> {item.title}</h3>
+              <Link href={`post/${item.slug}`}> Read Now</Link>
+            </div>
+          )
+        }
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+        <p>   1. Environment Variables  </p>
+        <p>   2. Base Path  </p>
+        <p>   3. Rewrites  </p>
+        <p>   4. Redirects  </p>
+        <p>   5. Custom Headers  </p>
+        <p>   6. Custom Page Extensions  </p>
+        <p>   7. CDN Support with Asset Prefix  </p>
+        <p>   8. Custom Webpack Config  </p>
+        <p>   9. Compression  </p>
+        <p>   11. Disabling x-powered-by  </p>
+        <p>   12. React Strict Mode  </p>
+        <p>   13. Build indicator  </p>
+        <p>   14. Disabling ETag Generation  </p>
+        <p>   15. Setting a custom build directory  </p>
+        <p>   16. Trailing Slash  </p>
+        <p>   5. Ignoring ESLint  </p>
+        <p>   6. Ignoring TypeScript Errors  </p>
+        
+        <p>   7. exportPathMap  </p>
+        <p>   8. URL Imports  </p>
+        <p>   9. Turbopack-specific options  </p>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+        <p>   1. Runtime Configuration  </p>
+        <p>   2. Disabling HTTP Keep-Alive  </p>
+        <p>   3. Configuring the Build ID  </p>
+        <p>   4. Configuring onDemandEntries  </p>
       </main>
     </>
   )
