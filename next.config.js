@@ -79,7 +79,7 @@ const nextConfig = {
     //     },
     //   ],
     // })
-    console.log(config);
+
 
     return config
   },
