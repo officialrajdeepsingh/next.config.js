@@ -43,7 +43,7 @@ const nextConfig = {
   },
   images:{
     unoptimized : true
-  }
+  },
   // basePath: '/my-repo',
 //   devIndicators: {
 //     buildActivityPosition: 'bottom-right',
@@ -57,24 +57,42 @@ const nextConfig = {
 //   typescript: {
 //     ignoreBuildErrors: true,
 //   },
-//   async rewrites() {
-//     return [
-//       {
-//         source: '/old-rewrite-path',
-//         destination: '/new-rewrite-path',
-//       },
-//     ]
-//   },
+  async rewrites() {
+    return [
+      {
+        source: '/old-rewrite-path',
+        destination: '/new-rewrite-path',
+      },
+    ]
+  },
+  webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  ) => {
+    // config.module.rules.push({
+    //   test: /\.mdx/,
+    //   use: [
+    //     options.defaultLoaders.babel,
+    //     {
+    //       loader: '@mdx-js/loader',
+    //       options: pluginOptions.options,
+    //     },
+    //   ],
+    // })
+    console.log(config);
+
+    return config
+  },
   
-//   async redirects() {
-//     return [
-//       {
-//         source: '/old-path-to',
-//         destination: '/new-path',
-//         permanent: true,
-//       },
-//     ]
-//   },
+  async redirects() {
+    return [
+      {
+        source: '/old-path-to',
+        destination: '/new-path',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 
