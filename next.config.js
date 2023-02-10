@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: true,
   // pageExtensions: ['mdx', 'jsx', 'js', 'tsx', 'ts'],
@@ -7,6 +8,7 @@ const nextConfig = {
   // distDir: 'build',
   // generateEtags: false,
   // poweredByHeader: false,
+  assetPrefix: isProd ? 'https://cdn.next-config-js.vercel.app' : undefined,
   // async headers() {
   //   return [
   //     {
@@ -29,6 +31,7 @@ const nextConfig = {
   //     },
   //   ]
   // },
+
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -64,26 +67,7 @@ const nextConfig = {
         destination: '/new-rewrite-path',
       },
     ]
-  },
-  webpack: (
-    config,
-    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
-  ) => {
-    // config.module.rules.push({
-    //   test: /\.mdx/,
-    //   use: [
-    //     options.defaultLoaders.babel,
-    //     {
-    //       loader: '@mdx-js/loader',
-    //       options: pluginOptions.options,
-    //     },
-    //   ],
-    // })
-
-
-    return config
-  },
-  
+  },  
   async redirects() {
     return [
       {
