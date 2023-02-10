@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {demoData} from '../demoData';
+import { demoData } from '../demoData';
 import Link from 'next/link';
 
 
@@ -21,39 +21,43 @@ export default function Home() {
       <main>
         {
           demoData.map(
-            item => <div key={item.id}> 
-              <h3> {item.title}</h3>
-              <Link href={`post/${item.slug}`}> Read Now</Link>
+            item => <div className='card' key={item.id}>
+              <h2 style={{marginBottom:'10px',textAlign:'left'}}> {item.property}</h2>
+              <Link className='card-button' href={`post/${item.property.trim().toLowerCase().replaceAll(" ","-")}`}> Read Now</Link>
             </div>
           )
         }
 
-        <p>   1. Environment Variables  </p>
-        <p>   2. Base Path  </p>
-        <p>   3. Rewrites  </p>
-        <p>   4. Redirects  </p>
-        <p>   5. Custom Headers  </p>
-        <p>   6. Custom Page Extensions  </p>
-        <p>   7. CDN Support with Asset Prefix  </p>
-        <p>   8. Custom Webpack Config  </p>
-        <p>   9. Compression  </p>
-        <p>   11. Disabling x-powered-by  </p>
-        <p>   12. React Strict Mode  </p>
-        <p>   13. Build indicator  </p>
-        <p>   14. Disabling ETag Generation  </p>
-        <p>   15. Setting a custom build directory  </p>
-        <p>   16. Trailing Slash  </p>
-        <p>   5. Ignoring ESLint  </p>
-        <p>   6. Ignoring TypeScript Errors  </p>
-        
-        <p>   7. exportPathMap  </p>
-        <p>   8. URL Imports  </p>
-        <p>   9. Turbopack-specific options  </p>
+        <div className='topic'>
 
-        <p>   1. Runtime Configuration  </p>
-        <p>   2. Disabling HTTP Keep-Alive  </p>
-        <p>   3. Configuring the Build ID  </p>
-        <p>   4. Configuring onDemandEntries  </p>
+          <h2> Explain the following topic</h2>
+          <p>   1. Environment Variables  </p>
+          <p>   2. Base Path  </p>
+          <p>   3. Rewrites  </p>
+          <p>   4. Redirects  </p>
+          <p>   5. Custom Headers  </p>
+          <p>   6. Custom Page Extensions  </p>
+          <p>   7. CDN Support with Asset Prefix  </p>
+          <p>   8. Custom Webpack Config  </p>
+          <p>   9. Compression  </p>
+          <p>   11. Disabling x-powered-by  </p>
+          <p>   12. React Strict Mode  </p>
+          <p>   13. Build indicator  </p>
+          <p>   14. Disabling ETag Generation  </p>
+          <p>   15. Setting a custom build directory  </p>
+          <p>   16. Trailing Slash  </p>
+          <p>   5. Ignoring ESLint  </p>
+          <p>   6. Ignoring TypeScript Errors  </p>
+
+          <p>   7. exportPathMap  </p>
+          <p>   8. URL Imports  </p>
+          <p>   9. Turbopack-specific options  </p>
+
+          <p>   1. Runtime Configuration  </p>
+          <p>   2. Disabling HTTP Keep-Alive  </p>
+          <p>   3. Configuring the Build ID  </p>
+          <p>   4. Configuring onDemandEntries  </p>
+        </div>
       </main>
     </>
   )
