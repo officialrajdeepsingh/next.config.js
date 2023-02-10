@@ -3,8 +3,8 @@ import {demoData} from '../../demoData';
 
 function post({postData}) {
     return (
-        <div>
-            <h1> {postData.title} </h1>
+        <div className='main'>
+            <h1> {postData.property} </h1>
         </div>
     );
 }
@@ -17,7 +17,7 @@ export const getStaticPaths = async () => {
       paths: demoData.map((post) => {
         return {
           params: {
-            slug: post.slug
+            slug: post.property.trim().toLowerCase().replaceAll(" ","-")
           },
         }
       }),
@@ -29,11 +29,11 @@ export const getStaticProps = async (
   ) => {
     const { slug } = context.params
 
-    const postData=demoData[0]
+    const postData=demoData.filter(item=> item.property.trim().toLowerCase().replaceAll(" ","-")=== slug)
 
     return {
       props: {
-        postData,
+        postData:postData[0],
       },
     }
   }
